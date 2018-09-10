@@ -1,0 +1,90 @@
+{background-repeat: no-repeat;}
+
+	#table {
+				margin-top:600px;
+				margin-left:500px;
+				background-color: lightgrey;
+				width: 300px;
+				}
+				
+				#tabelle {
+				margin-left: -60px;
+				}
+
+
+
+
+#slider {
+	height:400px;
+	width:650px;
+	margin: 50px auto;
+	position:relative;
+	border-radius:4px;
+	overflow:hidden;
+	}
+#image {
+	height:400px;
+	width:650px;
+	position:absolute;
+	}
+				
+			
+table, th, td {
+    border: 1px solid red;
+    border-collapse: collapse;
+	margin-left: 70px;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table #t01 {
+    width: 100%;    
+    background-color: hotpink;
+}
+#nav { background-color: #222 ;
+margin-left: -15px ;
+margin-right: -15px;
+margin-top: -15px;}
+#nav_wrapper {
+    width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+#nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-width: 200px;
+}
+#nav ul li {
+    display: inline-block;
+}
+#nav ul li:hover {
+    background-color: #333;
+}
+#nav ul li a, visited {
+    color: #CCC;
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+}
+#nav ul li:hover ul {
+    display: block;
+}
+#nav ul ul {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    border: 10px solid #222;
+    border-top: 0;
+    margin-left: -50px;
+	margin-top: -5px ;
+}
+#nav ul ul li {
+    display: block;
+}
+#nav ul ul li a:hover {
+    color: #699;
+}

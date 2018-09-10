@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="nl">
+ <head>
+
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="CSS/stylesheed.css" type="text/css"/>
+  
+  <title> pokemontrainers.nl </title>
+  <script src="js/slideshow.js"></script> 
+</head>
+ <body>
+	
+<div id="nav">
+    <div id="nav_wrapper">
+			<ul>
+			<li>
+					<a href="hallo.html"> homepage </a>
+					</li>
+						<li>
+						<a href="http://pokemondb.net/pokedex/national">pokedex</a>
+						</li>
+							
+							<li> <a href="favoteam.html">ons favo team</a>
+							        <ul>
+									<li> <a href="gyarados.html"> gyarados </a>
+									</li> 
+									<li> <a href="alakazam.html"> alakazam</a>
+									</li>
+									<li> <a href="zapdos.html"> zapdos</a>
+									</li>
+									<li> <a href="kabutops.html"> kabutops</a>
+									</li>
+									<li> <a href="charizard.html"> charizard</a>
+									</li>
+									<li> <a href="vileplume.html"> vileplume</a>
+									</li>
+							</ul>
+							
+						</li>
+				
+				<li> <a href="#">maps</a>
+					<ul>
+						<li><a href="map.html">hoenn</a>
+						</li>
+						<li><a href="unova.html">unova</a>
+							</li>
+						<li><a href="map2.html">kanto</a>
+						</li>
+						
+					</ul>
+				</li>
+				
+				<li>
+				<a href="quiz.html">quiz</a>
+			    </li>
+				<li> <a href="battle.html">battle</a>
+			
+				</li>
+			</ul>
+	
+		</div>
+</div>
+
+	<div id="tekst">
+	
+		<h1> Pokémon, gotta catch 'm all!</h1>
+	
+	<div id="center">
+		<img id="img" src="img/fire_blast_by_kuroi_tsuki-d3ezy1i.jpg" title="dit kan jij zijn" alt="pokemontrainers">
+		<a href="http://www.gamefaqs.com/boards/696959-pokemon-x/67632721"><img id="img" src="img/shuckle.jpg" title="" alt="shuckle" width=300px; height=275px;></a>
+	<div id="link">
+	
+		<h3> Hoe wordt je een Pokémon trainer? </h3> 
+		<p> - Ga uit je huis, achter je computer vandaan en loop in het dichtsbijzijnde gras. <br>
+		 - Als je mazzel hebt wordt je tegengehouden door een compleet vreemde man.<br>
+		 - Hij neemt je mee naar zijn lab en kies altijd de vuur pokémon, anders moet je direct stoppen.<br>
+		 - Train deze <abbr title="torchick, charmender of cindaquile"> <b class="citaat"> VUUR </b> </abbr> pokémon totdat die level 14 is en als je te veel tijd heb vang ook een pidgey.<br>
+		 - Train deze Pidgey ook tot level 14 en ga naar je rivaal<br>
+		 - Versla deze en blijf door trainen.<br>
+		 - Probeer de gym en vergeet niet dat counter types super stertk zijn in het begin!<br>
+		 - Probeer <abbr title="veel base damage en couterpicks op de volgende gym"> <b class="citaat"> sterke </b> </abbr> pokémons te vangen en blijf allemaal gelijkmatig trainen.<br>
+		 - Als je hier een uur of 6 in heb zitten ben je klaar om de quiz te <abbr title="zo snel mogelijk iets doen"> <b class="citaat">rushen </b> </abbr>. </p>
+     
+	</div>
+	<br>
+	
+	<span style="margin-left:300px; width:200px;">
+	<input id="ButtonContinue" onclick="random();" type="button" value="willekeurig feitje" />
+	</span>
+
+	<div id="quiz" style="background-color: white; margin-left:35px; margin-right:35px;">
+ 
+   <span id="demo">??????????????????????????????????????????????????????????????????????????????????????</span>
+   
+  
+   <script>
+   
+ 
+ function random(){  
+ var xd = Math.floor((Math.random() * 6));  
+ var pokemon = [
+    "de map van de hele pokémon wereld is gewoon de kaart van Japan.",
+    "Ash Ketchum's achternaam is een woordgrap voor 'catch'em, de slagzin van Pokémon.",
+    "als je de slang pokemons 'ekens'en 'arbok'omdraait krijg je 'snake' en 'kobra'",
+	"de Pokémon Hitmonlee en Hitmonchan zijn gebaseerd op Jackie Chan en Bruce Lee",
+	"mr. Mime kan ook vrouwelijk zijn!",
+	"de eerste soort gelijke pokemon game van nintendo heette 'Capsule Monsters'"
+];
+document.getElementById("demo").innerHTML = pokemon[xd];
+}
+  
+
+</script>
+</div>
+
+	
+	
+	<div id="slider">
+	<img src="Images/img1.jpg" id="image" alt="#" >
+	<div class="left_hold"><img onClick="photo(-1)" class="left" src="Images/arrow_left.png" alt="#">
+	</div>
+	<div class="right_hold"><img onClick="photo(1)" class="right" src="Images/arrow_right.png" alt="#">
+	</div>
+	</div>
+
+	</div>
+
+ </body>
+ </html> 

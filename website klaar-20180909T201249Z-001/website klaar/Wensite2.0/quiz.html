@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="nl">
+ <head>  
+			 <meta charset="utf-8">
+			 <link rel="stylesheet" href="CSS/stylesheed.css" type="text/css"/>
+  
+			 <title> pokemontrainers.nl </title> 
+</head>
+<body>
+
+<div id="nav">
+    <div id="nav_wrapper">
+			<ul>
+			<li>
+					<a href="hallo.html"> homepage </a>
+					</li>
+							<li><a href="http://pokemondb.net/pokedex/national">pokedex</a>
+						
+							</li>
+								<li> <a href="favoteam.html">ons favo team</a>
+							<ul>
+									<li> <a href="gyarados.html"> gyarados </a>
+									</li> 
+									<li> <a href="alakazam.html"> alakazam</a>
+									</li>
+									<li> <a href="zapdos.html"> zapdos</a>
+									</li>
+									<li> <a href="kabutops.html"> kabutops</a>
+									</li>
+									<li> <a href="charizard.html"> charizard</a>
+									</li>
+									<li> <a href="vileplume.html"> vileplume</a>
+									</li>
+							</ul>
+							</li>
+				<li> <a href="#">maps</a>
+					
+				<ul>
+						<li><a href="map.html">hoenn</a>
+						</li>
+						<li><a href="unova.html">unova</a>
+							</li>
+						<li><a href="map2.html">kanto</a>
+						</li>
+						
+					</ul>
+				</li>
+				<li> <a href="quiz.html">quiz</a>
+			
+				</li>
+				<li> <a href="battle.html">battle</a>
+			
+				</li>
+			</ul>
+	
+		</div>
+</div>
+
+<div id="tekst">
+<div id="quiz">
+ <br />
+        Vraag: <span id="NumberAsked">1</span> van de 10 met <span id="NumberCorrect">0</span> goede antwoorden
+    <p>
+        <span id="TriviaQuestion">???</span>
+    </p>
+    <p>
+        &nbsp;
+        <input id="RadioTrue" type="radio" value="true" name="answer" checked="checked" /> Waar
+        &nbsp;&nbsp;&nbsp;
+        <input id="RadioFalse" type="radio" value="false" name="answer" /> niet waar
+    </p>
+    <p>
+        <input id="ButtonContinue" onclick="checkAnswer();" type="button" value="continue" />
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="quiz.html">Herstarten</a>
+    </p>
+ 
+    <script type="text/javascript">
+        // Array of trivia data
+        var TriviaData = new Array(10)
+        createTwoDimensionalArray(3);
+ 
+        // Variables to track state of the game
+        // i.e. number questions asked, current correct total and current question
+        var questionsAsked = 0;
+        var totalCorrect = 0;
+        var currentQuestion = 0;
+        var selectionValid = false;
+ 
+        // Questions
+        TriviaData[0][0] = "Pikachu is een electric type.";
+        TriviaData[1][0] = "squirtle is een grass type.";
+        TriviaData[2][0] = "Blastoise is een evolutie van wartortle.";
+        TriviaData[3][0] = "Charmander gaat dood als zijn flam uitgaat.";
+        TriviaData[4][0] = "Een regio heeft 7 gyms.";
+        TriviaData[5][0] = "De 1ste generatie pokemon bestaat uit 151 pokemon.";
+        TriviaData[6][0] = "Als diglet evolueert, wordt hij digduo.";
+        TriviaData[7][0] = "Er bestaan pratende pokemon.";
+        TriviaData[8][0] = "Mew is een cloon van Mewtwo.";
+        TriviaData[9][0] = "Ash zijn begin pokemon was Caterpie.";
+   
+        // Answers
+        TriviaData[0][1] = "true";
+        TriviaData[1][1] = "false";
+        TriviaData[2][1] = "true";
+        TriviaData[3][1] = "true";
+        TriviaData[4][1] = "false";
+        TriviaData[5][1] = "true";
+        TriviaData[6][1] = "false";
+        TriviaData[7][1] = "true";
+        TriviaData[8][1] = "false";
+        TriviaData[9][1] = "false";
+ 
+        // Has question been asked
+        // -- necessary because we are asking in random order
+        TriviaData[0][2] = "no";
+        TriviaData[1][2] = "no";
+        TriviaData[2][2] = "no";
+        TriviaData[3][2] = "no";
+        TriviaData[4][2] = "no";
+        TriviaData[5][2] = "no";
+        TriviaData[6][2] = "no";
+        TriviaData[7][2] = "no";
+        TriviaData[8][2] = "no";
+        TriviaData[9][2] = "no";
+ 
+        // Load up first question
+        setQuestion();
+ 
+        // Sets question text and indicator so that we know the question has been displayed
+        function setQuestion() {
+            selectionValid = false; // Flag to make sure question has not been asked yet
+            while (selectionValid == false) {
+                currentQuestion = Math.floor(Math.random() * 10); // randomly select starting question
+                if (TriviaData[currentQuestion][2] == "no") {
+                    selectionValid = true;
+                }
+            }
+            document.getElementById("TriviaQuestion").innerHTML = TriviaData[currentQuestion][0];
+            TriviaData[currentQuestion][2] = "yes";
+            questionsAsked = questionsAsked + 1;
+        }
+ 
+        function processAnswer(myAnswer) {
+            if (TriviaData[currentQuestion][1] == myAnswer) {
+                // answer correct
+                totalCorrect = totalCorrect + 1;
+            }
+        }
+ 
+        // This function creates our two dimensional array
+        function createTwoDimensionalArray(arraySize) {
+            for (i = 0; i < TriviaData.length; ++i)
+                TriviaData[i] = new Array(arraySize);
+        }
+ 
+        // This function checks the answer, updates correct total
+        // and randomly selects the next question
+        function checkAnswer() {
+            if (document.getElementById("RadioTrue").checked) {
+                processAnswer("true");
+            }
+            else {
+                processAnswer("false");
+            }
+            // get next question if not asked all yet
+            if (questionsAsked < 10) {
+                setQuestion();
+            }
+            // final question asked - disable button and show final results
+            else {
+			
+                alert("Quiz complete! You got " + totalCorrect + " correct out of 10.");
+                document.getElementById("ButtonContinue").disabled = true;
+              if (totalCorrect > 9) {
+				  Newsite= window.open("https://www.youtube.com/watch?v=JuYeHPFR3f0","newsite");
+				  //yo.html
+				}
+		
+				
+            }
+			// update totals
+            document.getElementById("NumberAsked").innerHTML = questionsAsked;
+            document.getElementById("NumberCorrect").innerHTML = totalCorrect;
+
+			}
+	            
+				
+     
+
+    </script>
+</div>
+
+	</br>
+	
+	<img src="img/quiz.jpg" alt="#">
+
+	<p>
+	Als je alles goed hebt wordt je doorgelinkt naar de poekmon theme song scherm.
+	</p>
+
+	</div>
+
+
+
+</body>
+</html>
